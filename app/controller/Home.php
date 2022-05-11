@@ -2,12 +2,14 @@
 
 namespace app\controller;
 
+use \app\controller\Login;
 use \app\page\View;
 use \app\controller\Admin;
 
 class Home extends Page{
 
     public function home(){
+        Login::requireLogin();
         parent::getHeader();
         $content = View::render('home',[]);
         parent::getFooter();
@@ -15,6 +17,7 @@ class Home extends Page{
     }
 
     public function consultar(){
+        Login::requireLogin();
         parent::getHeader();
         $conteudo = array();
         $conteudo['registros'] = Admin::showList();
@@ -25,6 +28,7 @@ class Home extends Page{
     }
 
     public function cadastrar(){
+        Login::requireLogin();
         parent::getHeader();
         $content = View::render('cadastro', []);
         parent::getFooter();
@@ -32,6 +36,7 @@ class Home extends Page{
     }
     
     public function editar($id){
+        Login::requireLogin();
         parent::getHeader();
         $conteudo = array();
         $conteudo['registros'] = Admin::showEdit($id);
@@ -42,6 +47,7 @@ class Home extends Page{
     }
 
     public function deletar($id){
+        Login::requireLogin();
         parent::getHeader();
         $conteudo = array();
         $conteudo['registros'] = Admin::showEdit($id);
@@ -49,6 +55,13 @@ class Home extends Page{
         $content = View::render('excluir', $conteudo);
         parent::getFooter();
         return parent::getPage('Excluir',$content);
+    }
+
+    public function login(){
+        parent::getHeaderLogin();
+        $content = View::render('login',[]);
+        parent::getFooter();
+        return parent::getPageLogin('Login',$content);
     }
     
     
