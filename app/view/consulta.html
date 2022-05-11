@@ -1,0 +1,28 @@
+<div class="row container">
+    <div class="col s12">
+        <h3 class="light">Consultar</h3>
+    </div>
+
+    <div class="col s12">
+        <table>
+            <tr>
+                <th>Id.</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Ações</th>
+            </tr>
+            <tbody>
+                {% for registro in registros %}
+                <tr>
+                <td>{{registro.id}}</td>
+                <td>{{registro.nome}}</td>
+                <td>{{registro.email}}</td>                
+                <td>
+                    <a href="?url=home/editar/&id={{registro.id}}">Alterar</a> |
+                    <a href="?url=home/deletar/&id={{registro.id}}" class="red-text">Deletar</a>
+                </td>
+            </tr>       
+                {% endfor %}
+        </table>
+    </div>
+</div>

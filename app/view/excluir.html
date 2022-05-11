@@ -1,0 +1,23 @@
+<div class="row container">
+    <div class="col s12">
+        <h3 class="light">Deletar</h3>
+    </div>
+
+    <div class="col s12">
+        <form method="post" action="?url=admin/confirmaDelete/">
+        {% for registro in registros%}
+            <div class="input-field col s12">
+                <input type="hidden" name="id" value="{{registro.id}}">
+                <p>Deseja deletar o registro: {{registro.nome}}</p>
+            </div>
+            <hr>
+
+            <div class="input-field col s12">
+                <input type="submit" name="enviar" value="sim" class="btn-small red">
+                <a class="btn-small" href="?url=home/consultar/">Não</a>
+            </div>
+            {% endfor %}
+        </form>
+       
+    </div>
+</div>
