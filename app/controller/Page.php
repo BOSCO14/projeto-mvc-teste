@@ -11,7 +11,9 @@ class Page{
     }
     
     public static function getFooter(){
-        return View::render('template/home/footer');
+        $usuarioLogado = Login::getUsuarioLogado();
+        $usuario = $usuarioLogado['nome'];
+        return View::render('template/home/footer', ['usuario' => $usuario]);
     }
 
     public static function getPage($title,$content){

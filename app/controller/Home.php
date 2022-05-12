@@ -60,7 +60,7 @@ class Home extends Page{
     public function login(){
         parent::getHeaderLogin();
         $content = View::render('login',[]);
-        parent::getFooter();
+        parent::getFooterLogin();
         return parent::getPageLogin('Login',$content);
     }
     

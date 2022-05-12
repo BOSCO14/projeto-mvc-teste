@@ -9,10 +9,10 @@ class Usuario{
 
     public static function validate(){
 
-        //$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-        //$senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_SPECIAL_CHARS);
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+        $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_SPECIAL_CHARS);
+        //$email = $_POST['email'];
+        //$senha = $_POST['senha'];
 
         $con = Connection::getConn();
 
